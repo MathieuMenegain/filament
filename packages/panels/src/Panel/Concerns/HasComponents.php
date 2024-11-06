@@ -101,10 +101,11 @@ trait HasComponents
 
     /**
      * @param  array<class-string>  $pages
+     * @param  bool  $ignoreCached
      */
-    public function pages(array $pages): static
+    public function pages(array $pages, bool $ignoreCached = false): static
     {
-        if ($this->hasCachedComponents()) {
+        if ($this->hasCachedComponents() && !$ignoreCached) {
             return $this;
         }
 
@@ -123,10 +124,11 @@ trait HasComponents
 
     /**
      * @param  array<class-string>  $resources
+     * @param  bool  $ignoreCached
      */
-    public function resources(array $resources): static
+    public function resources(array $resources, bool $ignoreCached = false): static
     {
-        if ($this->hasCachedComponents()) {
+        if ($this->hasCachedComponents() && !$ignoreCached) {
             return $this;
         }
 
@@ -161,10 +163,11 @@ trait HasComponents
 
     /**
      * @param  array<class-string<Widget> | WidgetConfiguration>  $widgets
+     * @param  bool  $ignoreCached
      */
-    public function widgets(array $widgets): static
+    public function widgets(array $widgets, bool $ignoreCached = false): static
     {
-        if ($this->hasCachedComponents()) {
+        if ($this->hasCachedComponents() && !$ignoreCached) {
             return $this;
         }
 
